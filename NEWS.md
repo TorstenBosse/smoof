@@ -1,3 +1,5 @@
+# smoof (development version)
+
 # smoof 1.7.0
 
 ## New features
