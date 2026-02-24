@@ -12,6 +12,7 @@
 
 * Fixed bug in getLoggedValues when logging of x-values was set to FALSE in addLoggingWrapper
 * Fixed bug with instance ID mapping in makeBiObjBBOBFunction
+* Fixed some documentation issues
 
 # smoof 1.6.0.3
 

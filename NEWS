@@ -9,6 +9,7 @@ smoof 1.7.0
 * Added support for single- and multi-objective NK-landscapes
 * Sanity checks for smoof functions evaluations are now optional (you may set the option smoof.check_input_before_evaluation
   to FALSE in order to deactivate those checks). This can lead to significant speed ups when a function is evaluated many times
+* Fixed some documentation issues
 
 smoof 1.6.0.3
 =============

@@ -94,7 +94,7 @@ computing in R needs builds upon smoof functions.
 ## Citation
 
 Please cite my [R Journal
-paper](https://journal.r-project.org/archive/2017/RJ-2017-004/index.html)
+paper](https://journal.r-project.org/articles/RJ-2017-004/index.html)
 in publications. Get the information via `citation("smoof")` or use the
 following BibTex entry:
 
@@ -103,7 +103,7 @@ following BibTex entry:
       title = {smoof: Single- and Multi-Objective Optimization Test Functions},
       year = {2017},
       journal = {The R Journal},
-      url = {https://journal.r-project.org/archive/2017/RJ-2017-004/index.html},
+      url = {https://journal.r-project.org/articles/RJ-2017-004/index.html},
     }
 
 ## Contact

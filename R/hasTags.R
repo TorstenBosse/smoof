@@ -39,6 +39,7 @@ hasTags.character = function(fn, tags) {
   return(hasTags(generator, tags))
 }
 
+#' @export
 hasTags.smoof_wrapped_function = function(fn, tags) {
   return(hasTags(getWrappedFunction(fn), tags))
 }

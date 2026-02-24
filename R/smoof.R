@@ -46,6 +46,5 @@
 #' TR15-2-001, TU Dortmund University, 2015.
 #'
 #' @encoding UTF-8
-#' @docType package
-#' @name smoof-package
-NULL
+#' @keywords internal
+"_PACKAGE"

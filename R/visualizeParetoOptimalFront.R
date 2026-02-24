@@ -48,7 +48,7 @@ visualizeParetoOptimalFront = function(fn, ...) {
   eff.points = as.data.frame(eff.points)
   colnames(eff.points) = c("f1", "f2")
 
-  pl = ggplot2::ggplot(eff.points, mapping = ggplot2::aes_string(x = "f1", y = "f2"))
+  pl = ggplot2::ggplot(eff.points, mapping = ggplot2::aes(x = .data[["f1"]], y = .data[["f2"]]))
   pl = pl + ggplot2::geom_line(colour = "darkgray")
   pl = pl + ggplot2::xlab(expression(f[1])) + ggplot2::ylab(expression(f[2]))
   pl = pl + ggplot2::ggtitle(sprintf("Objective space with shape of Pareto-optimal\n

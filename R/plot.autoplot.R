@@ -140,10 +140,13 @@
   }
 
   if (n.numeric == 1L) {
-    pl = ggplot2::ggplot(grid, ggplot2::aes_string(x = par.names[numeric.idx], y = "y")) + geom_line()
+    num.par = par.names[numeric.idx]
+    pl = ggplot2::ggplot(grid, ggplot2::aes(x = .data[[num.par]], y = .data[["y"]])) + geom_line()
   }
   if (n.numeric == 2L) {
-    pl = ggplot2::ggplot(grid, ggplot2::aes_string(x = par.names[numeric.idx[1L]], y = par.names[numeric.idx[2L]]))
+    num.par1 = par.names[numeric.idx[1L]]
+    num.par2 = par.names[numeric.idx[2L]]
+    pl = ggplot2::ggplot(grid, ggplot2::aes(x = .data[[num.par1]], y = .data[[num.par2]]))
     if (render.levels) {
 
       if (!requireNamespace("RColorBrewer", quietly = TRUE))
@@ -152,11 +155,11 @@
       # see http://learnr.wordpress.com/2009/07/20/ggplot2-version-of-figures-in-lattice-multivariate-data-visualization-with-r-part-6/
       brewer.div = colorRampPalette(RColorBrewer::brewer.pal(11, "Spectral"), interpolate = "spline")
 
-      pl = pl + ggplot2::geom_raster(ggplot2::aes_string(fill = "y"))
+      pl = pl + ggplot2::geom_raster(ggplot2::aes(fill = .data[["y"]]))
       pl = pl + ggplot2::scale_fill_gradientn(colours = brewer.div(200))
     }
     if (render.contours) {
-      pl = pl + ggplot2::stat_contour(ggplot2::aes_string(z = "y"), colour = "gray", alpha = 0.8)
+      pl = pl + ggplot2::stat_contour(ggplot2::aes(z = .data[["y"]]), colour = "gray", alpha = 0.8)
     }
   }
 
@@ -181,11 +184,14 @@
     # get optima coordinates in a nice data.frame
     opt.df = getOptimaDf(x)
     if (n.numeric == 1L) {
-      pl = pl + ggplot2::geom_point(opt.df, mapping = ggplot2::aes_string(x = par.names[numeric.idx[1L]], y = "y", colour = "optima", shape = "optima"))
+      num.par1 = par.names[numeric.idx[1L]]
+      pl = pl + ggplot2::geom_point(opt.df, mapping = ggplot2::aes(x = .data[[num.par1]], y = .data[["y"]], colour = .data[["optima"]], shape = .data[["optima"]]))
     } else {
-      pl = pl + ggplot2::geom_point(opt.df, mapping = ggplot2::aes_string(x = par.names[numeric.idx[1L]], y = par.names[numeric.idx[2L]], colour = "optima", shape = "optima"))
+      num.par1 = par.names[numeric.idx[1L]]
+      num.par2 = par.names[numeric.idx[2L]]
+      pl = pl + ggplot2::geom_point(opt.df, mapping = ggplot2::aes(x = .data[[num.par1]], y = .data[[num.par2]], colour = .data[["optima"]], shape = .data[["optima"]]))
       # opt.df$y = round(opt.df$y, digits = 2L)
-      # pl = pl + geom_text(opt.df, mapping = aes_string(x = par.names[numeric.idx[1L]], y = par.names[numeric.idx[2L]], label = "y"))
+      # pl = pl + geom_text(opt.df, mapping = aes(x = par.names[numeric.idx[1L]], y = par.names[numeric.idx[2L]], label = "y"))
     }
   }
 
